@@ -1,0 +1,31 @@
+package com.techlabs.inheritence;
+
+public class A {
+		public void eat() {
+			System.out.println("A is eat");
+		}
+		public void play() {
+			System.out.println("A is play");
+		}
+		
+		public static void walk() {
+			System.out.println("A is walking");
+		}
+}
+___________________________
+
+
+package com.techlabs.inheritence;
+
+public class TestClass extends A{
+
+	public static void main(String[] args) {
+			A a;
+			a=new C();
+			a.eat();
+			a.play();
+			A.walk();
+			
+	}
+
+}

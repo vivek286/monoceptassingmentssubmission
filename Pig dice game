@@ -1,0 +1,53 @@
+package com.techlabs.assignments;
+
+import java.util.Random;
+import java.util.*;
+import java.util.Scanner;
+
+public class PigDiceGame {
+
+	public static void main(String[] args) {
+		Random random = new Random();
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Let's play pig dice game");
+		playgame(random,sc);
+		}
+
+	}
+
+	private static void playgame(Random random,Scanner sc) {
+		int total = 0, turnScore = 0, i = 1;
+		System.out.println("TURN " + i);
+		while (total <= 20) {
+			System.out.println("Roll or Hold? (r/h):");
+			char ans = sc.next().charAt(0);
+			if (ans == 'r') {
+				int randomNumber = random.nextInt(6) + 1;
+				System.out.println("Die:" + randomNumber);
+				turnScore = turnScore + randomNumber;
+				if (randomNumber == 1) {
+					turnScore = 0;
+					System.out.println("");
+					System.out.println("Turn over. No score.");
+					System.out.println("");
+					System.out.println("");
+					i++;
+					System.out.println("TURN " + i);
+				}
+			} else {
+				total = total + turnScore;
+				System.out.println("score for turn:" + turnScore);
+				System.out.println("total score" + total);
+				if (total >= 20) {
+					System.out.println("");
+					System.out.println("you finished in " + i + " turns");
+					break;
+				}
+				turnScore = 0;
+				i++;
+				System.out.println("TURN " + i);
+			}
+		
+	}
+}
